@@ -8,12 +8,16 @@ const Home = () => {
 	const maxRetries = 20;
 	const [retry, setRetry] = useState(0);
 	const [retryCount, setRetryCount] = useState(maxRetries);
+	const [isGenerating, setIsGenerating] = useState(false);
+	const [finalPrompt, setFinalPrompt] = useState("");
+
 	const onChange = (e) => {
 		setInput(e.target.value);
 	};
 	const generateAction = async () => {
 		console.log("hello");
-
+		if (isGenerating && retry === 0) return;
+		setIsGenerating(true);
 		if (retry > 0) {
 			setRetryCount((prevState) => {
 				if (retryCount === 0) {
@@ -24,30 +28,30 @@ const Home = () => {
 			});
 			setRetry(0);
 		}
-		try {
-			const res = await fetch("api/generate", {
-				method: "POST",
-				headers: {
-					"Content-type": "image/jpeg",
-				},
-				body: JSON.stringify({ input }),
-			});
 
-			const data = await res.json();
-			console.log(data);
-			if (res.status === 503) {
-				setRetry(data.estimated_time);
-				return;
-			}
+		const res = await fetch("api/generate", {
+			method: "POST",
+			headers: {
+				"Content-type": "image/jpeg",
+			},
+			body: JSON.stringify({ input }),
+		});
 
-			if (!res.ok) {
-				console.log(data.error);
-				return;
-			}
-			setImg(data.image);
-		} catch (err) {
-			console.error(err);
+		const data = await res.json();
+		console.log(data);
+		if (res.status === 503) {
+			setRetry(data.estimated_time);
+			return;
 		}
+		if (!res.ok) {
+			console.log(data.error);
+			setIsGenerating(false);
+			return;
+		}
+		setFinalPrompt(input);
+		setInput("");
+		setImg(data.image);
+		setIsGenerating(false);
 	};
 
 	const sleep = (ms) => {
@@ -66,16 +70,15 @@ const Home = () => {
 				return;
 			}
 			console.log(`Trying again in ${retry} seconds.`);
+			console.log(`${retryCount} retries remaining out of 20`);
 			await sleep(retry * 1000);
 
 			await generateAction();
-
-			if (retry === 0) {
-				return;
-			}
-
-			runRetry();
 		};
+		if (retry === 0) {
+			return;
+		}
+		runRetry();
 	}, [retry]);
 	return (
 		<div className="root">
@@ -101,14 +104,29 @@ const Home = () => {
 							onChange={onChange}
 						/>
 						<div className="prompt-buttons">
-							<a className="generate-button" onClick={generateAction}>
+							<a
+								className={
+									isGenerating ? "generate-button loading" : "generate-button"
+								}
+								onClick={generateAction}
+							>
 								<div className="generate">
-									<p>Generate</p>
+									{isGenerating ? (
+										<span className="loader"></span>
+									) : (
+										<p>Generate</p>
+									)}
 								</div>
 							</a>
 						</div>
 					</div>
 				</div>
+				{img && (
+					<div className="output-content">
+						<Image src={img} width={512} height={512} alt={input} />
+						<p>{finalPrompt}</p>
+					</div>
+				)}
 			</div>
 		</div>
 	);

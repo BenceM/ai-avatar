@@ -21,6 +21,7 @@ body {
 
 .container {
 	display: flex;
+
 	flex: 0 0 auto;
 	flex-flow: row nowrap;
 	gap: 10px;
