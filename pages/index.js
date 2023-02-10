@@ -1,13 +1,82 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Head from "next/head";
 import Image from "next/image";
 
 const Home = () => {
 	const [input, setInput] = useState("");
+	const [img, setImg] = useState("");
+	const maxRetries = 20;
+	const [retry, setRetry] = useState(0);
+	const [retryCount, setRetryCount] = useState(maxRetries);
 	const onChange = (e) => {
 		setInput(e.target.value);
 	};
-	const generateAction = () => {};
+	const generateAction = async () => {
+		console.log("hello");
+
+		if (retry > 0) {
+			setRetryCount((prevState) => {
+				if (retryCount === 0) {
+					return 0;
+				} else {
+					return prevState - 1;
+				}
+			});
+			setRetry(0);
+		}
+		try {
+			const res = await fetch("api/generate", {
+				method: "POST",
+				headers: {
+					"Content-type": "image/jpeg",
+				},
+				body: JSON.stringify({ input }),
+			});
+
+			const data = await res.json();
+			console.log(data);
+			if (res.status === 503) {
+				setRetry(data.estimated_time);
+				return;
+			}
+
+			if (!res.ok) {
+				console.log(data.error);
+				return;
+			}
+			setImg(data.image);
+		} catch (err) {
+			console.error(err);
+		}
+	};
+
+	const sleep = (ms) => {
+		return new Promise((resolve) => {
+			setTimeout(resolve, ms);
+		});
+	};
+
+	useEffect(() => {
+		const runRetry = async () => {
+			if (retryCount === 0) {
+				console.log(
+					`Model still loading after ${maxRetries} retries. Try request again in 5 minutes.`
+				);
+				setRetryCount(maxRetries);
+				return;
+			}
+			console.log(`Trying again in ${retry} seconds.`);
+			await sleep(retry * 1000);
+
+			await generateAction();
+
+			if (retry === 0) {
+				return;
+			}
+
+			runRetry();
+		};
+	}, [retry]);
 	return (
 		<div className="root">
 			<Head>
