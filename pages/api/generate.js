@@ -6,7 +6,7 @@ const bufferToBase64 = (buffer) => {
 	return `data:image/png;base64,${base64}`;
 };
 const generateAction = async (req, res) => {
-	const input = JSON.parse(req.body).input;
+	const input = JSON.parse(req.body).finalInput;
 
 	const response = await fetch(
 		`https://api-inference.huggingface.co/models/BenceM/ai-avatar`,
@@ -14,6 +14,7 @@ const generateAction = async (req, res) => {
 			headers: {
 				Authorization: `Bearer ${process.env.HF_AUTH_KEY}`,
 				"Content-Type": "application/json",
+				"x-use-cache": "false",
 			},
 			method: "POST",
 			body: JSON.stringify({
@@ -30,6 +31,7 @@ const generateAction = async (req, res) => {
 		const json = await response.json();
 		res.status(503).json(json);
 	} else {
+		console.log(input);
 		const json = await response.json();
 		res.status(response.status).json({ error: response.statusText });
 	}

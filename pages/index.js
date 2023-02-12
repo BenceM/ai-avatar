@@ -28,13 +28,14 @@ const Home = () => {
 			});
 			setRetry(0);
 		}
-
+		const finalInput = input.replace(/[Bb]ence/, "bencemesz");
+		console.log(typeof finalInput);
 		const res = await fetch("api/generate", {
 			method: "POST",
 			headers: {
 				"Content-type": "image/jpeg",
 			},
-			body: JSON.stringify({ input }),
+			body: JSON.stringify({ finalInput }),
 		});
 
 		const data = await res.json();
@@ -92,8 +93,8 @@ const Home = () => {
 					</div>
 					<div className="header-subtitle">
 						<h2>
-							Include "bencemesz" to use my face or generate anything else you
-							want (within reason😉)
+							Include Bence to use my face or generate anything else you want!{" "}
+							<span>(within reason😉)</span>
 						</h2>
 					</div>
 					<div className="prompt-container">
@@ -103,7 +104,15 @@ const Home = () => {
 							value={input}
 							onChange={onChange}
 						/>
+
 						<div className="prompt-buttons">
+							<div className="prompt-loading">
+								{isGenerating ? (
+									<p>The model might take a while to generate</p>
+								) : (
+									<p></p>
+								)}
+							</div>
 							<a
 								className={
 									isGenerating ? "generate-button loading" : "generate-button"

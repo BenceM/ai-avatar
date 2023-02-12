@@ -1,42 +1,41 @@
 @import url("https://fonts.googleapis.com/css2?family=Manrope:wght@400;700;800&display=swap");
 
-body {
+html {
+	font-size: 62.5%;
+}
+* {
 	margin: 0;
 	padding: 0;
+	box-sizing: border-box;
+}
+body {
 	font-family: "Manrope", sans-serif;
 }
 
 .root {
-	display: flex;
-	place-content: center flex-start;
-	align-items: center;
 	background-color: rgb(0, 0, 0);
-	flex-flow: column nowrap;
-	gap: 10px;
+	gap: 1rem;
+	min-height: 100vh;
 	height: 100vh;
-	overflow: auto;
-	padding: 0px;
-	position: relative;
 }
 
 .container {
 	display: flex;
-
 	flex: 0 0 auto;
 	flex-flow: row nowrap;
-	gap: 10px;
-	/* height: fit-content; */
+	padding: 1rem;
+	gap: 2rem;
 	height: 100%;
 	overflow: auto;
 	position: relative;
 	width: auto;
-	gap: 64px;
 }
 
 .header {
 	display: flex;
 	flex-direction: column;
 	width: 100%;
+	gap: 1rem;
 	align-items: center;
 	justify-content: center;
 	color: #fff;
@@ -44,13 +43,13 @@ body {
 
 .header-title {
 	display: flex;
-	gap: 12px;
+	gap: 1.2rem;
 }
 
 .header-title h1 {
 	width: 100%;
 	font-weight: 700;
-	font-size: 72px;
+	font-size: 7.2rem;
 	letter-spacing: -4px;
 	line-height: 1.2em;
 	text-align: center;
@@ -58,52 +57,38 @@ body {
 }
 
 .header-subtitle h2 {
-	font-size: 20px;
-	font-style: normal;
+	display: flex;
+	flex-direction: column;
+	font-size: 1.8rem;
 	font-weight: 400;
 	line-height: 1.4em;
+	padding: 1rem 3rem;
 	color: rgba(255, 255, 255, 0.75);
 }
-
+.header-subtitle h2 span {
+	text-align: center;
+}
 .prompt-container {
 	place-content: flex-end center;
 	align-items: center;
 	display: flex;
 	flex: 0 0 auto;
 	flex-flow: column nowrap;
-	gap: 16px;
+	gap: 1rem;
 	height: min-content;
-	padding: 0px;
-	width: min-content;
+	padding: 0;
+	width: 100%;
 }
 
 .prompt-box {
-	border-bottom-width: 1px;
-	border-color: rgba(255, 255, 255, 0.1);
-	border-left-width: 1px;
-	border-right-width: 1px;
-	border-style: solid;
-	border-top-width: 1px;
-	place-content: flex-start;
-	align-items: flex-start;
+	border: 1px solid rgba(255, 255, 255, 0.1);
 	background-color: rgba(255, 255, 255, 0.05);
 	border-radius: 16px;
-	display: flex;
-	flex: 0 0 auto;
-	flex-flow: column nowrap;
-	gap: 10px;
-	overflow: hidden;
-	padding: 20px;
-	position: relative;
-	width: 610px;
-	max-width: 1200px;
-	will-change: transform;
-	overflow: auto;
-	outline: none;
-	resize: none;
-	font-size: 16px;
-	font-style: normal;
-	letter-spacing: 0px;
+	padding: 2rem 1rem;
+	width: 85%;
+	max-width: 120rem;
+	font-size: 1.6rem;
+	letter-spacing: 0;
 	line-height: 1.6em;
 	text-align: start;
 	color: rgba(255, 255, 255, 0.75);
@@ -124,12 +109,12 @@ body {
 	place-content: center;
 	align-items: center;
 	justify-content: flex-end;
+	gap: 2rem;
 	flex: 0 0 auto;
 	flex-flow: row nowrap;
-	gap: 12px;
 	height: min-content;
 	overflow: hidden;
-	padding: 0px;
+	padding: 0;
 	position: relative;
 	width: 100%;
 }
@@ -142,10 +127,11 @@ body {
 	display: flex;
 	flex: 0 0 auto;
 	flex-flow: column nowrap;
-	gap: 10px;
+	gap: 1rem;
 	height: min-content;
 	overflow: hidden;
-	padding: 16px 24px;
+	padding: 1.6rem 2.4rem;
+	margin-right: 5rem;
 	position: relative;
 	text-decoration: none;
 	width: min-content;
@@ -164,6 +150,7 @@ body {
 
 .generate p {
 	color: rgb(255, 255, 255);
+	font-size: 1.6rem;
 	margin: 0;
 }
 
@@ -175,6 +162,7 @@ body {
 .output-content {
 	width: 512px;
 	height: 100%;
+	margin-right: 1rem;
 	display: flex;
 	justify-content: center;
 	flex-direction: column;
@@ -196,20 +184,19 @@ body {
 @media (max-width: 1200px) {
 	.container {
 		flex-direction: column;
-		justify-content: center;
-		max-width: 700px;
+		gap: 2rem;
 		width: 100%;
-		padding: 50px;
+		padding: 5rem;
 	}
 
 	.prompt-container {
-		max-width: 600px;
 		width: 100%;
 	}
-
+	.prompt-box {
+	}
 	.output-content {
 		width: 100%;
-		height: 512px;
+
 		align-items: center;
 	}
 }
@@ -221,15 +208,12 @@ body {
 	}
 
 	.header-title h1 {
-		font-size: 50px;
+		font-size: 5rem;
+		letter-spacing: -1px;
 	}
 
 	.header-subtitle h2 {
 		text-align: center;
-	}
-
-	.prompt-buttons {
-		justify-content: center;
 	}
 
 	.prompt-container {
@@ -241,7 +225,31 @@ body {
 		width: 100%;
 	}
 }
-
+@media (max-width: 513px) {
+	.container {
+		padding: 2rem;
+		gap: 6rem;
+	}
+	.header-title h1 {
+		font-size: 5rem;
+	}
+	.header-subtitle h2 {
+		font-size: 1.4rem;
+	}
+	.prompt-container {
+		justify-content: center;
+	}
+	.generate-button {
+		margin: 0;
+	}
+	.output-content {
+		height: auto;
+	}
+	.output-content img {
+		height: 256px;
+		width: 256px;
+	}
+}
 /* Loading ring animation */
 .loader {
 	width: 18px;
