@@ -41,17 +41,18 @@ const Home = () => {
 		if (res.status === 503) {
 			console.log(data.error);
 			setRetry(data.estimated_time);
-			return;
+			return false;
 		}
 		if (!res.ok) {
 			console.log(data.error);
 			setIsGenerating(false);
-			return;
+			return false;
 		}
 		setFinalPrompt(input);
 		setInput("");
 		setImg(data.image);
 		setIsGenerating(false);
+		return true;
 	};
 
 	const sleep = (ms) => {
@@ -73,7 +74,10 @@ const Home = () => {
 			console.log(`${retryCount} retries remaining out of 20`);
 			await sleep(retry * 1000);
 
-			await generateAction();
+			const repsonse = await generateAction();
+			if (repsonse) {
+				setRetryCount(maxRetries);
+			}
 		};
 		if (retry === 0) {
 			return;
