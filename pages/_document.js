@@ -5,7 +5,7 @@ export default function Document() {
 		<Html>
 			<Head>
 				<meta
-					property="title"
+					property="og:title"
 					content="BenceM AI Avatar Generator"
 					key="title"
 				/>
