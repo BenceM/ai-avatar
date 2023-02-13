@@ -4,10 +4,14 @@ export default function Document() {
 	return (
 		<Html>
 			<Head>
-				<meta property="og:title" content="AI Avatar Generator" key="title" />
+				<meta
+					property="title"
+					content="BenceM AI Avatar Generator"
+					key="title"
+				/>
 				<meta
 					property="og:description"
-					content="Ai generator"
+					content="Ai Avatar generator"
 					key="description"
 				/>
 				<meta name="twitter:card" content="summary_large_image"></meta>

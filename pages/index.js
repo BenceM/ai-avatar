@@ -15,7 +15,7 @@ const Home = () => {
 		setInput(e.target.value);
 	};
 	const generateAction = async () => {
-		console.log("hello");
+		console.log("retrycount:", retryCount);
 		if (isGenerating && retry === 0) return;
 		setIsGenerating(true);
 		if (retry > 0) {
@@ -29,7 +29,7 @@ const Home = () => {
 			setRetry(0);
 		}
 		const finalInput = input.replace(/[Bb]ence/, "bencemesz");
-		console.log(typeof finalInput);
+
 		const res = await fetch("api/generate", {
 			method: "POST",
 			headers: {
@@ -37,10 +37,9 @@ const Home = () => {
 			},
 			body: JSON.stringify({ finalInput }),
 		});
-
 		const data = await res.json();
-		console.log(data);
 		if (res.status === 503) {
+			console.log(data.error);
 			setRetry(data.estimated_time);
 			return;
 		}
@@ -93,7 +92,7 @@ const Home = () => {
 					</div>
 					<div className="header-subtitle">
 						<h2>
-							Include Bence to use my face or generate anything else you want!{" "}
+							Include Bence to use my face or generate anything else you want!
 							<span>(within reason😉)</span>
 						</h2>
 					</div>
