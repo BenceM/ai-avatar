@@ -104,6 +104,7 @@ const Home = () => {
 						<input
 							type="text"
 							className="prompt-box"
+							placeholder="e.g.: Portrait of Bence as a cowboy in the wild west, realistic, intricate,8k"
 							value={input}
 							onChange={onChange}
 						/>
