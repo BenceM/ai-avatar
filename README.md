@@ -14,6 +14,7 @@ This is a custom trained Image generator model using Google's Dreambooth and Sta
   - [Built with](#built-with)
   - [What I learned](#what-i-learned)
   - [Continued development](#continued-development)
+- [Images](#example-images)
 - [Author](#author)
 
 ## Overview
@@ -90,8 +91,6 @@ Model:
 - HuggingFace: [Link](https://huggingface.co/docs)
 - Python scripts: [Shivam Shrirao](https://github.com/ShivamShrirao)
 
-### Screenshot
-
 ## My process
 
 ### Built with
@@ -127,6 +126,12 @@ Model:
 8. Converting the diffusers into stable diffusion model (.ckpt)
 9. Setting the model up for prompts
 10. Save the model host it on HF
+
+Training phases:
+
+<p>
+  <img src="./images/pic2.png" width="300" height="600"/>
+</p>
 
 #### The App
 
@@ -167,6 +172,14 @@ There would be several ways to improve this build:
 - Finding a host that doesn't time out serverless functions
 
 I kept this project free. If I went the premium route I'd have rented a computer from AWS or Azure.
+
+## Example Images
+
+<p>
+  <img src="./images/pic3.png" width="512" height="512"/>
+  <img src="./images/pic4.png" width="512" height="512"/>
+  <img src="./images/pic5.png" width="512" height="512"/>
+</p>
 
 ## Author
 
