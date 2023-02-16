@@ -69,13 +69,16 @@ Prompting:
 - Midjourney: [Midjourney](https://www.midjourney.com/home/?callbackUrl=%2Fapp%2F)
 - Lexica [Lexica](https://lexica.art/)
 
-<div style="height: 200px; overflow: auto;">
-      The prompt:
-      fantasy beautiful face goddess, in hibernation box, hyperdetailed painting, complex, head and shoulders portrait, 4k resolution concept art portrait by Greg Rutkowski, Artgerm, WLOP, Alphonse Mucha dynamic lighting hyperdetailed intricately detailed art trending on Artstation triadic colors Unreal Engine 5 volumetric lighting handsome, evil devil, gothic, short brunet hair, evil smirk, big green eyes, young, pop, elegant, life, father, clear, deep color art, Greg Rutkowski art, fantasycore, airbrush art, black and white still, digital Art, perfect composition, beautiful detailed intricate insanely detailed octane render trending on artstation, 8 k artistic photography, photorealistic concept art, soft natural volumetric cinematic perfect light, chiaroscuro, award - winning photograph, masterpiece, oil on canvas, raphael, caravaggio, greg rutkowski, beeple, beksinski, giger, perfect composition, beautiful detailed intricate insanely detailed octane render trending on artstation, 8 k artistic photography, photorealistic concept art, soft natural volumetric cinematic perfect light, chiaroscuro, award - winning photograph, masterpiece, oil on canvas, raphael, caravaggio, greg rutkowski, beeple, beksinski, giger, trending on artstation, sharp focus, studio photo, intricate details, highly detailed, by greg rutkowski, sf, intricate artwork masterpiece, ominous, matte painting movie poster, golden ratio, trending on cgsociety, intricate, epic, trending on artstation, by artgerm, h. r. giger and beksinski, highly detailed, vibrant, production cinematic character render, ultra high quality model, sf, intricate artwork masterpiece, ominous, matte painting movie poster, golden ratio, trending on cgsociety, intricate, armor, epic, trending on artstation, by artgerm, h. r. giger and beksinski, highly detailed, vibrant, production cinematic character render, ultra high quality model
-      Negatives:
-      Distorted, helmet, crown, bad topology, extra limbs, extra hands, watermarked, blurry. Over exposed, 2 heads, 2 faces, cropped image, out of frame, draft
+<details>
+<summary>Click to See the Prompt</summary>
 
-</div>
+The prompt:
+fantasy beautiful face goddess, in hibernation box, hyperdetailed painting, complex, head and shoulders portrait, 4k resolution concept art portrait by Greg Rutkowski, Artgerm, WLOP, Alphonse Mucha dynamic lighting hyperdetailed intricately detailed art trending on Artstation triadic colors Unreal Engine 5 volumetric lighting handsome, evil devil, gothic, short brunet hair, evil smirk, big green eyes, young, pop, elegant, life, father, clear, deep color art, Greg Rutkowski art, fantasycore, airbrush art, black and white still, digital Art, perfect composition, beautiful detailed intricate insanely detailed octane render trending on artstation, 8 k artistic photography, photorealistic concept art, soft natural volumetric cinematic perfect light, chiaroscuro, award - winning photograph, masterpiece, oil on canvas, raphael, caravaggio, greg rutkowski, beeple, beksinski, giger, perfect composition, beautiful detailed intricate insanely detailed octane render trending on artstation, 8 k artistic photography, photorealistic concept art, soft natural volumetric cinematic perfect light, chiaroscuro, award - winning photograph, masterpiece, oil on canvas, raphael, caravaggio, greg rutkowski, beeple, beksinski, giger, trending on artstation, sharp focus, studio photo, intricate details, highly detailed, by greg rutkowski, sf, intricate artwork masterpiece, ominous, matte painting movie poster, golden ratio, trending on cgsociety, intricate, epic, trending on artstation, by artgerm, h. r. giger and beksinski, highly detailed, vibrant, production cinematic character render, ultra high quality model, sf, intricate artwork masterpiece, ominous, matte painting movie poster, golden ratio, trending on cgsociety, intricate, armor, epic, trending on artstation, by artgerm, h. r. giger and beksinski, highly detailed, vibrant, production cinematic character render, ultra high quality model
+Negatives:
+Distorted, helmet, crown, bad topology, extra limbs, extra hands, watermarked, blurry. Over exposed, 2 heads, 2 faces, cropped image, out of frame, draft
+
+</details>
+
 <p>
   <img src="./images/pic1.png" width="512" height="512"/>
 </p>
